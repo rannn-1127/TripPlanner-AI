@@ -1,0 +1,100 @@
+# =========================
+# Python
+# =========================
+
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Build files
+build/
+dist/
+wheels/
+*.egg-info/
+
+# Test / coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Type checker / linter
+.mypy_cache/
+.ruff_cache/
+
+# =========================
+# Virtual Environment
+# =========================
+
+.venv/
+venv/
+env/
+
+# =========================
+# Environment Variables
+# =========================
+
+.env
+.env.*
+!.env.example
+
+# =========================
+# IDE
+# =========================
+
+.idea/
+.vscode/
+*.iml
+
+# =========================
+# Frontend
+# =========================
+
+node_modules/
+frontend/dist/
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# =========================
+# LangChain / RAG Data
+# =========================
+
+# Chroma vector database
+backend/data/vector_db/
+
+# Generated local data
+backend/data/trips/
+backend/data/exports/
+
+# Temporary files
+tmp/
+temp/
+
+# =========================
+# Generated Files
+# =========================
+
+*.bin
+*.index
+
+# =========================
+# Logs
+# =========================
+
+*.log
+
+# =========================
+# OS
+# =========================
+
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# =========================
+# Local Files
+# =========================
+
+*.local

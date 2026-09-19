@@ -1,0 +1,227 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family:
+    Inter,
+    "Microsoft YaHei",
+    Arial,
+    sans-serif;
+
+  background: #f5f7fb;
+  color: #1f2937;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.app {
+  min-height: 100vh;
+
+  background:
+    radial-gradient(
+      circle at 10% 0%,
+      rgba(99, 102, 241, 0.05),
+      transparent 30%
+    ),
+    #f5f7fb;
+}
+
+/* ================================
+   全局交互动画
+================================ */
+
+button,
+.trip-card,
+.knowledge-card,
+.upload-area,
+.nav-link,
+input,
+select {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease,
+    opacity 0.2s ease;
+}
+
+/* 按钮点击反馈 */
+button:not(:disabled):active {
+  transform: scale(0.97);
+}
+
+/* 输入框聚焦 */
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+
+/* ================================
+   页面进入动画
+================================ */
+
+@keyframes page-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.container,
+.history-page,
+.knowledge-page {
+  animation: page-fade-in 0.45s ease-out;
+}
+
+
+/* ================================
+   卡片 Hover
+================================ */
+
+.trip-card:hover,
+.knowledge-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+}
+
+
+/* ================================
+   生成按钮
+================================ */
+
+.generate-button:not(:disabled):hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.2);
+}
+
+.generate-button:not(:disabled):active {
+  transform: translateY(0) scale(0.98);
+}
+
+
+/* ================================
+   AI 生成中的动画
+================================ */
+
+@keyframes pulse-soft {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.45;
+  }
+}
+
+.ai-loading {
+  animation: pulse-soft 1.5s ease-in-out infinite;
+}
+
+
+/* 呼吸圆点 */
+.loading-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #6366f1;
+  display: inline-block;
+  animation: pulse-soft 1s ease-in-out infinite;
+}
+
+
+/* ================================
+   SSE 输出动画
+================================ */
+
+@keyframes result-enter {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.markdown-body {
+  animation: result-enter 0.35s ease-out;
+}
+
+
+/* ================================
+   处理中状态
+================================ */
+
+.processing {
+  position: relative;
+  overflow: hidden;
+}
+
+.processing::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 40%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #6366f1,
+    transparent
+  );
+  animation: loading-line 1.5s linear infinite;
+}
+
+@keyframes loading-line {
+  from {
+    transform: translateX(-120%);
+  }
+
+  to {
+    transform: translateX(300%);
+  }
+}
+
+
+/* ================================
+   减少动画偏好
+================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
