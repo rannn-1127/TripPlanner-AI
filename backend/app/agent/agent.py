@@ -21,7 +21,6 @@ def get_trip_agent():
 
     if _agent is None:
         with _agent_lock:
-
             if _agent is None:
                 llm = get_deepseek_llm()
                 print("加载agent")
