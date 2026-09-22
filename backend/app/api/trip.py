@@ -10,7 +10,12 @@ router = APIRouter(
     tags=["trip"]
 )
 
-agent = get_trip_agent()
+agent=None
+def get_agent():
+    global agent
+    if agent is None:
+        agent=get_trip_agent()
+    return agent
 
 class TripRequest(BaseModel):
     destination: str
@@ -47,7 +52,7 @@ async def create_trip(request: TripRequest):
             "data": "开始分析需求..."
         }
         # 调用Agent流式执行
-        async for chunk in agent.astream(
+        async for chunk in get_agent().astream(
                 {
                     "messages": [
                         {
@@ -61,13 +66,16 @@ async def create_trip(request: TripRequest):
                     "updates"# Agent 状态更新
                 ]
         ):
-            mode, data = chunk
+            mode, data = chunk#mode：表示当前这条数据属于哪一种流;data：具体的数据内容
             # =========================
             # 处理模型输出
             # =========================
             if mode == "messages":
                 message, metadata = data
                 # 过滤空消息
+                # # 只取 agent 节点的输出，丢弃 tools 节点的 ToolMessage
+                # if metadata.get("langgraph_node") != "agent":
+                #     continue
                 if message.content:
                     buffer += message.content
                     # ---------------------
@@ -94,7 +102,6 @@ async def create_trip(request: TripRequest):
                     # 输出正式攻略
                     # ---------------------
                     else:
-
                         # 累积一定长度再发送
                         # 避免页面疯狂刷新
                         if len(buffer) >= 30:
@@ -104,7 +111,6 @@ async def create_trip(request: TripRequest):
                                 "data": buffer
                             }
                             buffer = ""
-
             # =========================
             # Agent状态
             # =========================

@@ -2,7 +2,7 @@ from fastapi import APIRouter, UploadFile, File, HTTPException
 import shutil
 from pathlib import Path
 from app.config.settings import DOCUMENTS_PATH
-from app.rag.rag import (
+from app.rag.knowledge import (
     add_document,
     delete_document,
     list_documents

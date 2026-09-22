@@ -117,7 +117,6 @@ def get_trip(trip_id: int) -> dict | None:
         return None
 
 
-
     with open(
         file_path,
         "r",

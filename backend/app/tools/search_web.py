@@ -1,8 +1,8 @@
 from langchain_core.tools import tool
 from tavily import TavilyClient
-from app.config.settings import TAVILY_API_KEY
 from functools import lru_cache
 import re
+from app.config.settings import TAVILY_API_KEY,TAVILY_MAX_RESULTS,WEB_CONTENT_MAX_LENGTH
 
 @lru_cache(maxsize=1)
 def get_tavily_client():
@@ -29,19 +29,22 @@ def clean_text(text: str) -> str:
 @tool
 def search_web(query: str) -> str:
     """
-    搜索互联网中的旅游信息。
-    适用于查询景点介绍、交通路线、开放时间、游玩建议等实时信息。
+    搜索互联网旅游信息。
 
-    参数：
-    query - 搜索关键词，例如：
-    "上海外滩最佳游玩时间"
-    "杭州西湖交通路线"
+    用于补充本地知识库缺失的信息，
+    例如：
+    - 最新天气
+    - 实时开放状态
+    - 最新活动
+
+    参数:
+        query: 搜索关键词
     """
     try:
         client = get_tavily_client()
         response = client.search(
             query=query,
-            max_results=5,
+            max_results=TAVILY_MAX_RESULTS,
             search_depth="advanced"
         )
 
@@ -58,8 +61,8 @@ def search_web(query: str) -> str:
             )
 
             # 限制长度，避免上下文爆炸
-            if len(content) > 1500:
-                content = content[:1500] + "..."
+            if len(content) > WEB_CONTENT_MAX_LENGTH:
+                content = content[:WEB_CONTENT_MAX_LENGTH] + "..."
 
             formatted.append(
                 f"[资料{i}] {content}\n"
@@ -77,7 +80,6 @@ def search_web(query: str) -> str:
 
 
 if __name__ == "__main__":
-
     result = search_web.invoke(
         {
             "query": "上海外滩最佳游玩时间和交通路线"

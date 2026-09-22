@@ -1,19 +1,27 @@
 from langchain_core.tools import tool
 from app.rag.rag import search_documents as rag_search_documents
-
+from app.config.settings import RECALL_K,RERANK_TOP_K
 
 @tool
 def search_documents(query: str) -> str:
     """
-    从本地知识库检索目的地旅游资料。
-    适用于查询景点介绍、交通路线、游玩建议、注意事项等信息。
-    参数：query - 搜索关键词，如"上海夜景景点"
+    查询本地旅游知识库，获取用户上传的目的地资料。
+
+    用于获取：
+    - 景点介绍
+    - 交通路线
+    - 游玩建议
+    - 美食推荐
+    - 注意事项
+    规划旅游行程时应优先使用该工具。
+    参数:
+        query: 需要查询的旅游主题，例如"上海夜景景点"
     """
     try:
         results = rag_search_documents(
             query,
-            recall_k=15,
-            top_k=5
+            recall_k=RECALL_K,
+            top_k=RERANK_TOP_K
         )
 
         if not results:
@@ -27,7 +35,7 @@ def search_documents(query: str) -> str:
                 f"链接：无\n"
                 f"页码：{r['page']}"
             )
-
+        print("使用RAG_tool")
         return "\n\n".join(formatted)
 
     except Exception as e:
