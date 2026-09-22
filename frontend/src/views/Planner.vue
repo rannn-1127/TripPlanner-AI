@@ -530,6 +530,7 @@ function renderMarkdown(content) {
   </main>
 </template>
 
+
 <style>
 * {
   box-sizing: border-box;
@@ -611,7 +612,7 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #f5f3ff;
+  background: #fffbeb;
   border-radius: 10px;
   font-size: 19px;
   transition:
@@ -621,7 +622,7 @@ button {
 
 .form-panel:hover .title-icon {
   transform: rotate(-8deg) scale(1.05);
-  background: #eeecff;
+  background: #fef3c7;
 }
 
 .form-item {
@@ -668,9 +669,9 @@ input[type="text"] {
 }
 
 input[type="text"]:focus {
-  border-color: #818cf8;
+  border-color: #f59e0b;
   background: white;
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.08);
+  box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.10);
 }
 
 input::placeholder {
@@ -691,8 +692,8 @@ input::placeholder {
 }
 
 .days-input:focus-within {
-  border-color: #818cf8;
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.08);
+  border-color: #f59e0b;
+  box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.10);
 }
 
 .days-input button {
@@ -700,7 +701,7 @@ input::placeholder {
   height: 100%;
   border: none;
   background: transparent;
-  color: #6366f1;
+  color: #d97706;
   font-size: 21px;
   cursor: pointer;
   transition:
@@ -709,7 +710,7 @@ input::placeholder {
 }
 
 .days-input button:hover:not(:disabled) {
-  background: #f0efff;
+  background: #fef3c7;
 }
 
 .days-input button:active:not(:disabled) {
@@ -761,16 +762,16 @@ input::placeholder {
 
 .interest-option:hover {
   transform: translateY(-1px);
-  border-color: #b7b8f6;
-  color: #6366f1;
+  border-color: #f59e0b;
+  color: #d97706;
 }
 
 .interest-option.active {
-  border-color: #818cf8;
-  background: #f4f3ff;
-  color: #4f46e5;
+  border-color: #f59e0b;
+  background: #fff7e6;
+  color: #b45309;
   font-weight: 600;
-  box-shadow: 0 3px 10px rgba(99, 102, 241, 0.08);
+  box-shadow: 0 3px 10px rgba(217, 119, 6, 0.10);
 }
 
 .interest-option input {
@@ -810,7 +811,7 @@ input::placeholder {
 
 .pace-options button:hover {
   transform: translateY(-2px);
-  border-color: #b7b8f6;
+  border-color: #f59e0b;
 }
 
 .pace-options button:hover strong {
@@ -818,10 +819,10 @@ input::placeholder {
 }
 
 .pace-options button.active {
-  border-color: #818cf8;
-  background: #f4f3ff;
-  color: #4f46e5;
-  box-shadow: 0 3px 10px rgba(99, 102, 241, 0.08);
+  border-color: #f59e0b;
+  background: #fff7e6;
+  color: #b45309;
+  box-shadow: 0 3px 10px rgba(217, 119, 6, 0.10);
 }
 
 .submit-button {
@@ -830,12 +831,12 @@ input::placeholder {
   margin-top: 28px;
   border: none;
   border-radius: 9px;
-  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  background: linear-gradient(135deg, #d97706, #b45309);
   color: white;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-  box-shadow: 0 8px 18px rgba(79, 70, 229, 0.18);
+  box-shadow: 0 8px 18px rgba(180, 83, 9, 0.20);
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease,
@@ -844,7 +845,7 @@ input::placeholder {
 
 .submit-button:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 11px 24px rgba(79, 70, 229, 0.26);
+  box-shadow: 0 11px 24px rgba(180, 83, 9, 0.28);
 }
 
 .submit-button:active:not(:disabled) {
@@ -925,7 +926,7 @@ input::placeholder {
   align-items: center;
   gap: 7px;
   margin-right: 5px;
-  color: #6366f1;
+  color: #d97706;
   font-size: 12px;
 }
 
@@ -933,7 +934,7 @@ input::placeholder {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: #6366f1;
+  background: #d97706;
   animation: pulse 1.2s ease-in-out infinite;
 }
 
@@ -971,9 +972,9 @@ input::placeholder {
 
 .export-button:hover {
   transform: translateY(-1px);
-  border-color: #a5a7ee;
-  color: #4f46e5;
-  background: #fafaff;
+  border-color: #fbbf24;
+  color: #b45309;
+  background: #fffdf8;
 }
 
 .export-button:active {
@@ -993,7 +994,7 @@ input::placeholder {
   border-radius: 11px;
   background: linear-gradient(
     135deg,
-    #fafaff,
+    #fffdf8,
     #f8f9fc
   );
   overflow: hidden;
@@ -1010,7 +1011,7 @@ input::placeholder {
   background: linear-gradient(
     90deg,
     transparent,
-    #818cf8,
+    #f59e0b,
     transparent
   );
   animation: statusLoading 1.5s linear infinite;
@@ -1056,7 +1057,7 @@ input::placeholder {
 }
 
 .status-title-icon {
-  color: #6366f1;
+  color: #d97706;
   animation: sparkle 1.5s ease-in-out infinite;
 }
 
@@ -1076,8 +1077,8 @@ input::placeholder {
 .status-state {
   padding: 3px 8px;
   border-radius: 10px;
-  background: #f0efff;
-  color: #6366f1;
+  background: #fef3c7;
+  color: #d97706;
   font-size: 10px;
 }
 
@@ -1103,7 +1104,7 @@ input::placeholder {
 }
 
 .status-item.active {
-  color: #4f46e5;
+  color: #b45309;
   font-weight: 500;
 }
 
@@ -1129,8 +1130,8 @@ input::placeholder {
 }
 
 .status-icon.current {
-  background: #ede9fe;
-  color: #6366f1;
+  background: #fde68a;
+  color: #d97706;
   animation: statusPulse 1s ease-in-out infinite;
 }
 
@@ -1139,7 +1140,7 @@ input::placeholder {
 }
 
 .status-running {
-  color: #818cf8;
+  color: #f59e0b;
   font-size: 10px;
   animation: pulse 1.2s ease-in-out infinite;
 }
@@ -1193,18 +1194,18 @@ input::placeholder {
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: #f4f3ff;
+  background: #fff7e6;
   transition:
     transform 0.3s ease,
     background 0.3s ease;
 }
 
 .empty:hover .empty-illustration {
-  background: #efedff;
+  background: #fcdc9a;
 }
 
 .plane {
-  color: #6366f1;
+  color: #d97706;
   font-size: 40px;
   animation: planeFloat 3s ease-in-out infinite;
 }
@@ -1253,8 +1254,8 @@ input::placeholder {
 
 .empty-tags span:hover {
   transform: translateY(-2px);
-  background: #f0efff;
-  color: #6366f1;
+  background: #fef3c7;
+  color: #d97706;
 }
 
 
@@ -1296,8 +1297,8 @@ input::placeholder {
   position: absolute;
   width: 58px;
   height: 58px;
-  border: 1px solid rgba(99, 102, 241, 0.2);
-  border-top-color: #6366f1;
+  border: 1px solid rgba(217, 119, 6, 0.22);
+  border-top-color: #d97706;
   border-radius: 50%;
   animation: rotate 1.6s linear infinite;
 }
@@ -1305,7 +1306,7 @@ input::placeholder {
 .generating-icon {
   position: relative;
   z-index: 2;
-  color: #6366f1;
+  color: #d97706;
   font-size: 30px;
   animation: starFloat 1.8s ease-in-out infinite;
 }

@@ -337,6 +337,7 @@ onMounted(() => {
 .history-page {
   min-height: calc(100vh - 64px);
   padding: 40px 24px;
+  background: linear-gradient(180deg, #fffaf2, #ffffff);
 }
 
 .history-container {
@@ -345,315 +346,322 @@ onMounted(() => {
 }
 
 .page-header {
-  margin-bottom: 30px;
+  margin-bottom: 32px;
 }
 
 .page-header h1 {
   margin: 0 0 8px;
-  font-size: 32px;
+  font-size: 34px;
+  font-weight: 700;
+  background: linear-gradient(135deg,#f59e0b,#fb923c);
+  -webkit-background-clip:text;
+  color:transparent;
 }
 
 .page-header p {
-  margin: 0;
-  color: #888;
+  margin:0;
+  color:#999;
+  font-size:15px;
 }
 
 .history-layout {
-  display: grid;
-  grid-template-columns: 380px 1fr;
-  gap: 24px;
-  min-height: 650px;
+  display:grid;
+  grid-template-columns:380px 1fr;
+  gap:24px;
+  min-height:650px;
 }
 
-/* 左侧列表 */
-
-.history-list {
-  padding: 24px;
-  border-radius: 16px;
-  background: #fff;
-  border: 1px solid #eee;
+.history-list,
+.history-detail {
+  padding:26px;
+  border-radius:22px;
+  background:rgba(255,255,255,.8);
+  backdrop-filter:blur(12px);
+  border:1px solid rgba(245,158,11,.15);
+  box-shadow:0 10px 35px rgba(0,0,0,.05);
 }
+
+/* 左侧标题 */
 
 .section-title {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:22px;
 }
 
 .section-title h2 {
-  margin: 0;
-  font-size: 20px;
+  margin:0;
+  font-size:21px;
 }
 
 .section-title span {
-  font-size: 14px;
-  color: #999;
+  padding:4px 12px;
+  border-radius:20px;
+  background:#fff3d6;
+  color:#d97706;
+  font-size:13px;
 }
 
+/* 行程卡片 */
+
 .trip-card {
-  padding: 18px;
-  margin-bottom: 12px;
-  border: 1px solid #eee;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: all 0.2s ease;
+  padding:18px;
+  margin-bottom:14px;
+  border-radius:16px;
+  border:1px solid #f1e7d5;
+  background:#fff;
+  cursor:pointer;
+  transition:.25s;
 }
 
 .trip-card:hover {
-  border-color: #aaa;
-  transform: translateY(-1px);
+  transform:translateY(-3px);
+  border-color:#f59e0b;
+  box-shadow:0 8px 20px rgba(245,158,11,.12);
 }
 
 .trip-card.active {
-  border-color: #333;
-  background: #fafafa;
+  border-color:#f59e0b;
+  background:linear-gradient(
+    135deg,
+    #fffaf0,
+    #fff
+  );
+  box-shadow:0 8px 25px rgba(245,158,11,.18);
 }
 
 .trip-card-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 10px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 }
 
 .trip-card-top h3 {
-  margin: 0;
-  font-size: 18px;
+  margin:0;
+  font-size:18px;
 }
 
 .trip-card-actions {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  display:flex;
+  align-items:center;
+  gap:10px;
 }
 
 .trip-days {
-  white-space: nowrap;
-  font-size: 14px;
-  color: #666;
+  padding:3px 10px;
+  border-radius:20px;
+  background:#fff3d6;
+  color:#d97706;
+  font-size:13px;
 }
 
-/* 删除按钮 */
-
 .delete-button {
-  padding: 4px 6px;
-  border: none;
-  border-radius: 6px;
-  background: transparent;
-  color: #999;
-  font-size: 13px;
-  cursor: pointer;
-  transition: all 0.2s ease;
+  padding:4px 8px;
+  border:none;
+  border-radius:8px;
+  background:transparent;
+  color:#aaa;
+  cursor:pointer;
 }
 
 .delete-button:hover {
-  color: #e74c3c;
-  background: #fff1f0;
+  color:#ef4444;
+  background:#fff1f2;
 }
 
-/* 历史记录信息 */
-
 .trip-info {
-  margin-top: 12px;
-  font-size: 14px;
-  color: #666;
+  margin-top:14px;
+  font-size:14px;
+  color:#666;
 }
 
 .trip-bottom {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  margin-top: 12px;
-  font-size: 12px;
-  color: #999;
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  margin-top:14px;
+  font-size:12px;
+  color:#999;
 }
 
-/* 右侧详情 */
+
+/* 详情区域 */
 
 .history-detail {
-  min-width: 0;
-  padding: 32px;
-  border-radius: 16px;
-  background: #fff;
-  border: 1px solid #eee;
+  min-width:0;
 }
 
 .detail-empty {
-  height: 100%;
-  min-height: 500px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: #999;
-  text-align: center;
+  min-height:500px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  color:#999;
 }
 
 .detail-icon {
-  font-size: 48px;
-  margin-bottom: 16px;
+  font-size:50px;
+  margin-bottom:18px;
 }
 
 .detail-empty h2 {
-  margin: 0 0 8px;
-  color: #444;
+  margin:0 0 8px;
+  color:#444;
 }
 
-.detail-empty p {
-  margin: 0;
-}
 
-/* 详情头部 */
+/* 详情头 */
 
 .detail-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 20px;
-  margin-bottom: 30px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid #eee;
-}
-
-.detail-title {
-  min-width: 0;
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:20px;
+  margin-bottom:30px;
+  padding-bottom:22px;
+  border-bottom:1px solid #f3e8d2;
 }
 
 .detail-header h2 {
-  margin: 0 0 14px;
-  font-size: 26px;
+  margin:0 0 14px;
+  font-size:27px;
 }
 
 .detail-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  font-size: 14px;
-  color: #777;
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  font-size:14px;
+  color:#777;
 }
 
-/* 详情操作按钮 */
+.detail-meta span {
+  padding:5px 12px;
+  border-radius:20px;
+  background:#fff8e7;
+}
+
+
+/* 按钮 */
 
 .detail-actions {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-wrap: wrap;
-  flex-shrink: 0;
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+.export-button,
+.back-button {
+  padding:9px 16px;
+  border-radius:10px;
+  cursor:pointer;
+  transition:.2s;
 }
 
 .export-button {
-  padding: 8px 14px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  background: #fff;
-  color: #444;
-  cursor: pointer;
-  transition: all 0.2s ease;
+  border:none;
+  background:linear-gradient(
+    135deg,
+    #f59e0b,
+    #fb923c
+  );
+  color:white;
 }
 
 .export-button:hover:not(:disabled) {
-  border-color: #999;
-  background: #f5f5f5;
+  transform:translateY(-2px);
+  box-shadow:0 6px 15px rgba(245,158,11,.25);
 }
 
 .export-button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
+  opacity:.5;
 }
 
 .back-button {
-  padding: 8px 16px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  background: #fff;
-  cursor: pointer;
+  border:1px solid #f3d9a8;
+  background:white;
+  color:#d97706;
 }
 
 .back-button:hover {
-  background: #f5f5f5;
+  background:#fff7ed;
 }
+
 
 /* Markdown */
 
 .markdown-body {
-  line-height: 1.8;
-  color: #333;
+  line-height:1.8;
+  color:#333;
 }
 
 .markdown-body :deep(h1) {
-  margin-top: 0;
-  margin-bottom: 20px;
+  margin-top:0;
+  color:#d97706;
 }
 
 .markdown-body :deep(h2) {
-  margin-top: 30px;
-  margin-bottom: 12px;
+  margin-top:30px;
+  padding-left:12px;
+  border-left:4px solid #f59e0b;
 }
 
 .markdown-body :deep(h3) {
-  margin-top: 24px;
-  margin-bottom: 10px;
-}
-
-.markdown-body :deep(p) {
-  margin: 10px 0;
-}
-
-.markdown-body :deep(ul) {
-  padding-left: 24px;
+  margin-top:22px;
 }
 
 .markdown-body :deep(li) {
-  margin: 6px 0;
+  margin:7px 0;
 }
+
 
 /* 空状态 */
 
 .empty-state {
-  padding: 60px 20px;
-  text-align: center;
-  color: #999;
+  padding:60px 20px;
+  text-align:center;
+  color:#999;
 }
 
 .empty-icon {
-  font-size: 40px;
-  margin-bottom: 15px;
+  font-size:42px;
+  margin-bottom:15px;
 }
 
 .empty-state button {
-  margin-top: 15px;
-  padding: 9px 18px;
-  border: none;
-  border-radius: 8px;
-  background: #333;
-  color: white;
-  cursor: pointer;
+  margin-top:15px;
+  padding:10px 20px;
+  border:none;
+  border-radius:12px;
+  background:linear-gradient(
+    135deg,
+    #f59e0b,
+    #fb923c
+  );
+  color:white;
+  cursor:pointer;
 }
+
 
 /* 移动端 */
 
-@media (max-width: 900px) {
-  .history-layout {
-    grid-template-columns: 1fr;
-  }
+@media(max-width:900px){
 
-  .history-list {
-    max-height: 500px;
-    overflow-y: auto;
-  }
+.history-layout{
+  grid-template-columns:1fr;
+}
 
-  .history-detail {
-    min-height: 500px;
-  }
+.history-list{
+  max-height:500px;
+  overflow-y:auto;
+}
 
-  .detail-header {
-    flex-direction: column;
-  }
+.detail-header{
+  flex-direction:column;
+}
 
-  .detail-actions {
-    width: 100%;
-  }
 }
 </style>

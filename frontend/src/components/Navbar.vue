@@ -1,82 +1,42 @@
 <template>
   <header class="navbar">
     <div class="navbar-container">
-
-      <!-- Logo -->
-      <div
-        class="brand"
-        @click="$router.push('/')"
-      >
+      <div class="brand" @click="$router.push('/')">
         <div class="brand-icon">
-          ✦
+          🧭
         </div>
-
         <div class="brand-text">
-          <span class="brand-name">
-            TripPlanner
-          </span>
-
-          <span class="brand-ai">
-            AI
-          </span>
+          <span class="brand-name">TripPlanner</span>
+          <span class="brand-ai">AI</span>
         </div>
       </div>
 
-
-      <!-- Navigation -->
       <nav class="nav-links">
-
-
-        <!-- 首页 -->
-        <router-link
-          to="/"
-          class="nav-item"
-        >
+        <router-link to="/" class="nav-item">
           <span class="nav-icon">⌂</span>
           <span>首页</span>
         </router-link>
 
-
-        <!-- 新增：开始规划 -->
-        <router-link
-          to="/planner"
-          class="nav-item"
-        >
-          <span class="nav-icon">✦</span>
+        <router-link to="/planner" class="nav-item">
+          <span class="nav-icon">✈</span>
           <span>开始规划</span>
         </router-link>
 
-
-        <!-- 知识库 -->
-        <router-link
-          to="/knowledge"
-          class="nav-item"
-        >
+        <router-link to="/knowledge" class="nav-item">
           <span class="nav-icon">▤</span>
           <span>知识库</span>
         </router-link>
 
-
-        <!-- 历史行程 -->
-        <router-link
-          to="/history"
-          class="nav-item"
-        >
+        <router-link to="/history" class="nav-item">
           <span class="nav-icon">◷</span>
           <span>历史行程</span>
         </router-link>
 
-
-        <!-- 关于 -->
-        <router-link
-          to="/about"
-          class="nav-item"
-        >
+        <router-link to="/about" class="nav-item">
           <span class="nav-icon">ⓘ</span>
           <span>关于我们</span>
         </router-link>
       </nav>
-
     </div>
   </header>
 </template>
@@ -86,176 +46,141 @@
   position: sticky;
   top: 0;
   z-index: 100;
-  height: 64px;
-  border-bottom: 1px solid #e9ebf0;
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  height: 68px;
+  border-bottom: 1px solid rgba(251,191,36,.18);
+  background: rgba(255,250,245,.78);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
 }
-
 .navbar-container {
-  width: min(1200px, calc(100% - 40px));
+  width: min(1240px, calc(100% - 48px));
   height: 100%;
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-
-
-
-/* Logo */
-
 .brand {
   display: flex;
   align-items: center;
-  gap: 9px;
+  gap: 12px;
   cursor: pointer;
   user-select: none;
 }
-
 .brand-icon {
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 9px;
-  background: #6366f1;
-  color: #ffffff;
-  font-size: 16px;
+  border-radius: 13px;
+  background: linear-gradient(135deg,#fbbf24,#f97316);
+  font-size: 21px;
   box-shadow:
-    0 5px 14px rgba(99, 102, 241, 0.22);
-
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
+    0 8px 20px rgba(249,115,22,.25),
+    inset 0 1px rgba(255,255,255,.5);
+  transition: .3s ease;
 }
-
 .brand:hover .brand-icon {
-  transform:
-    rotate(10deg)
-    scale(1.08);
+  transform: translateY(-2px) rotate(8deg);
   box-shadow:
-    0 8px 20px rgba(99, 102, 241, 0.32);
+    0 12px 28px rgba(249,115,22,.35);
 }
-
 .brand-text {
   display: flex;
   align-items: baseline;
-  gap: 3px;
+  gap: 5px;
 }
-
 .brand-name {
-  color: #252932;
-  font-size: 17px;
-  font-weight: 700;
+  color:#1f2937;
+  font-size:18px;
+  font-weight:750;
+  letter-spacing:-.4px;
 }
-
 .brand-ai {
-  color: #6366f1;
-  font-size: 11px;
-  font-weight: 700;
+  color:#f97316;
+  font-size:12px;
+  font-weight:800;
 }
-
-/* Navigation */
 .nav-links {
-  display: flex;
-  align-items: center;
-  gap: 4px;
+  display:flex;
+  align-items:center;
+  gap:8px;
 }
-
 .nav-item {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 9px 13px;
-  border-radius: 9px;
-  color: #737987;
-  font-size: 13px;
-  font-weight: 500;
-  text-decoration: none;
-
-  transition:
-    color 0.2s ease,
-    background 0.2s ease,
-    transform 0.2s ease;
+  position:relative;
+  display:flex;
+  align-items:center;
+  gap:7px;
+  padding:10px 15px;
+  border-radius:12px;
+  color:#78716c;
+  font-size:13px;
+  font-weight:550;
+  text-decoration:none;
+  transition:.25s ease;
 }
-
-
-
 .nav-item:hover {
-  color: #4f46e5;
-  background: #f5f6ff;
-  transform: translateY(-1px);
+  color:#ea580c;
+  background:#fff7ed;
+  transform:translateY(-2px);
 }
-
 .nav-icon {
-  font-size: 14px;
-
-  transition:
-      transform 0.2s ease;
+  font-size:15px;
+  transition:.25s ease;
 }
-
 .nav-item:hover .nav-icon {
-  transform: scale(1.15);
+  transform:scale(1.15);
 }
-
 .nav-item.router-link-active {
-  color: #4f46e5;
-  background: #f0f1ff;
-  font-weight: 600;
-}
-
-.nav-item.router-link-active::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: -1px;
-  width: 20px;
-  height: 2px;
-  transform: translateX(-50%);
-
-  border-radius: 999px;
-
-  background: #6366f1;
-
+  color:#ea580c;
+  background:linear-gradient(
+    135deg,
+    #ffedd5,
+    #fff7ed
+  );
+  font-weight:650;
   box-shadow:
-    0 0 8px rgba(99, 102, 241, 0.5);
+    0 4px 12px rgba(249,115,22,.12);
 }
-
-@media (max-width: 760px) {
-
+.nav-item.router-link-active::after {
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:-6px;
+  width:28px;
+  height:3px;
+  transform:translateX(-50%);
+  border-radius:999px;
+  background:linear-gradient(
+    90deg,
+    #fbbf24,
+    #f97316
+  );
+}
+.nav-item:active {
+  transform:scale(.96);
+}
+@media(max-width:760px){
   .navbar-container {
-    width: calc(100% - 24px);
+    width:calc(100% - 24px);
   }
-
   .nav-item {
-    padding: 8px 9px;
+    padding:8px 10px;
   }
-
   .nav-item span:last-child {
-    display: none;
-  }
-
-  .nav-icon {
-    font-size: 16px;
+    display:none;
   }
 }
-
-@media (max-width: 480px) {
+@media(max-width:480px){
   .brand-ai {
-    display: none;
+    display:none;
   }
-
   .nav-links {
-    gap: 1px;
+    gap:2px;
   }
-
   .nav-item {
-    padding: 8px;
+    padding:8px;
   }
 }
-
 </style>

@@ -16,7 +16,7 @@ body {
     Arial,
     sans-serif;
 
-  background: #f5f7fb;
+  background: #fffaf5;
   color: #1f2937;
 }
 
@@ -36,10 +36,10 @@ button {
   background:
     radial-gradient(
       circle at 10% 0%,
-      rgba(99, 102, 241, 0.05),
-      transparent 30%
+      rgba(245, 158, 11, 0.12),
+      transparent 32%
     ),
-    #f5f7fb;
+    #fffaf5;
 }
 
 /* ================================
@@ -62,17 +62,20 @@ select {
     opacity 0.2s ease;
 }
 
-/* 按钮点击反馈 */
 button:not(:disabled):active {
   transform: scale(0.97);
 }
 
-/* 输入框聚焦 */
+
+/* ================================
+   输入框聚焦
+================================ */
+
 input:focus,
 select:focus {
   outline: none;
-  border-color: #6366f1;
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+  border-color: #f59e0b;
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.15);
 }
 
 
@@ -106,7 +109,7 @@ select:focus {
 .trip-card:hover,
 .knowledge-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+  box-shadow: 0 8px 24px rgba(249, 115, 22, 0.12);
 }
 
 
@@ -116,7 +119,9 @@ select:focus {
 
 .generate-button:not(:disabled):hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.2);
+
+  box-shadow:
+    0 8px 20px rgba(249, 115, 22, 0.25);
 }
 
 .generate-button:not(:disabled):active {
@@ -145,12 +150,17 @@ select:focus {
 
 
 /* 呼吸圆点 */
+
 .loading-dot {
   width: 7px;
   height: 7px;
+
   border-radius: 50%;
-  background: #6366f1;
+
+  background: #f59e0b;
+
   display: inline-block;
+
   animation: pulse-soft 1s ease-in-out infinite;
 }
 
@@ -187,19 +197,25 @@ select:focus {
 
 .processing::after {
   content: "";
+
   position: absolute;
+
   left: 0;
   top: 0;
+
   width: 40%;
   height: 2px;
+
   background: linear-gradient(
     90deg,
     transparent,
-    #6366f1,
+    #f59e0b,
     transparent
   );
+
   animation: loading-line 1.5s linear infinite;
 }
+
 
 @keyframes loading-line {
   from {
@@ -213,15 +229,39 @@ select:focus {
 
 
 /* ================================
+   通用橙色主题变量
+================================ */
+
+:root {
+  --primary-color: #f59e0b;
+  --secondary-color: #f97316;
+
+  --primary-light: #fff7ed;
+
+  --border-color: #fed7aa;
+
+  --text-color: #1f2937;
+
+  --text-secondary: #9ca3af;
+}
+
+
+/* ================================
    减少动画偏好
 ================================ */
 
 @media (prefers-reduced-motion: reduce) {
+
   *,
   *::before,
   *::after {
+
     animation-duration: 0.01ms !important;
+
     animation-iteration-count: 1 !important;
+
     transition-duration: 0.01ms !important;
+
   }
+
 }

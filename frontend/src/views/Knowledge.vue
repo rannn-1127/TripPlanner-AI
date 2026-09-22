@@ -300,203 +300,262 @@ onMounted(() => {
 .knowledge-page {
   min-height: calc(100vh - 64px);
   padding: 40px 24px;
+  background: linear-gradient(180deg,#fffaf2,#ffffff);
 }
 
 .knowledge-container {
-  max-width: 1100px;
-  margin: 0 auto;
+  max-width:1100px;
+  margin:0 auto;
 }
 
 .page-header {
-  margin-bottom: 30px;
+  margin-bottom:32px;
 }
 
 .page-header h1 {
-  margin: 0 0 8px;
-  font-size: 32px;
+  margin:0 0 8px;
+  font-size:34px;
+  font-weight:700;
+  background:linear-gradient(135deg,#f59e0b,#fb923c);
+  -webkit-background-clip:text;
+  color:transparent;
 }
 
 .page-header p {
-  margin: 0;
-  color: #888;
+  margin:0;
+  color:#999;
+  font-size:15px;
 }
 
 .upload-section,
 .files-section {
-  padding: 28px;
-  margin-bottom: 24px;
-  border: 1px solid #eee;
-  border-radius: 16px;
-  background: #fff;
+  padding:28px;
+  margin-bottom:24px;
+  border-radius:22px;
+  background:rgba(255,255,255,.8);
+  backdrop-filter:blur(12px);
+  border:1px solid rgba(245,158,11,.15);
+  box-shadow:0 10px 35px rgba(0,0,0,.05);
 }
 
 .section-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 24px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:24px;
 }
 
 .section-header h2 {
-  margin: 0 0 6px;
-  font-size: 21px;
+  margin:0 0 6px;
+  font-size:21px;
 }
 
 .section-header p {
-  margin: 0;
-  color: #999;
-  font-size: 14px;
+  margin:0;
+  color:#999;
+  font-size:14px;
 }
+
 
 /* 上传区域 */
 
 .upload-box {
-  padding: 45px 20px;
-  border: 2px dashed #ddd;
-  border-radius: 14px;
-  text-align: center;
+  padding:50px 20px;
+  border:2px dashed #f3c77a;
+  border-radius:18px;
+  text-align:center;
+  background:linear-gradient(
+    135deg,
+    #fffaf0,
+    #ffffff
+  );
+  transition:.25s;
+}
+
+.upload-box:hover {
+  border-color:#f59e0b;
+  box-shadow:0 8px 25px rgba(245,158,11,.12);
 }
 
 .upload-icon {
-  margin-bottom: 15px;
-  font-size: 42px;
+  margin-bottom:16px;
+  font-size:46px;
 }
 
 .upload-box p {
-  margin: 0 0 18px;
-  color: #666;
+  margin:0 0 20px;
+  color:#666;
 }
 
 .selected-file {
-  color: #333 !important;
-  font-weight: 500;
+  color:#d97706 !important;
+  font-weight:600;
 }
+
 
 .select-button,
 .upload-button,
 .refresh-button,
 .delete-button {
-  padding: 9px 18px;
-  border-radius: 8px;
-  cursor: pointer;
+  padding:9px 18px;
+  border-radius:10px;
+  cursor:pointer;
+  transition:.2s;
 }
 
+
+/* 选择按钮 */
+
 .select-button {
-  border: 1px solid #ddd;
-  background: #fff;
+  border:1px solid #f3d9a8;
+  background:white;
+  color:#d97706;
 }
 
 .select-button:hover {
-  background: #f5f5f5;
+  background:#fff7ed;
 }
 
+
+/* 上传按钮 */
+
 .upload-button {
-  margin-left: 10px;
-  border: none;
-  background: #333;
-  color: #fff;
+  margin-left:10px;
+  border:none;
+  background:linear-gradient(
+    135deg,
+    #f59e0b,
+    #fb923c
+  );
+  color:white;
+}
+
+.upload-button:hover:not(:disabled) {
+  transform:translateY(-2px);
+  box-shadow:0 6px 15px rgba(245,158,11,.25);
 }
 
 .upload-button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
+  opacity:.5;
+  cursor:not-allowed;
 }
 
+
 .message {
-  margin-top: 15px;
-  color: #666;
-  font-size: 14px;
+  margin-top:15px;
+  color:#d97706;
+  font-size:14px;
 }
+
 
 /* 文件列表 */
 
 .file-list {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
 }
 
 .file-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 16px 18px;
-  border: 1px solid #eee;
-  border-radius: 12px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:18px;
+  border-radius:16px;
+  background:#fff;
+  border:1px solid #f3e8d2;
+  transition:.25s;
+}
+
+.file-item:hover {
+  transform:translateY(-2px);
+  border-color:#f59e0b;
+  box-shadow:0 8px 20px rgba(245,158,11,.1);
 }
 
 .file-info {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  min-width: 0;
+  display:flex;
+  align-items:center;
+  gap:15px;
+  min-width:0;
 }
 
 .file-icon {
-  font-size: 28px;
+  font-size:32px;
 }
 
 .file-info h3 {
-  margin: 0 0 5px;
-  font-size: 16px;
-  word-break: break-all;
+  margin:0 0 5px;
+  font-size:16px;
+  word-break:break-all;
 }
 
 .file-info p {
-  margin: 0;
-  color: #999;
-  font-size: 13px;
+  margin:0;
+  color:#999;
+  font-size:13px;
 }
 
+
+/* 删除按钮 */
+
 .delete-button {
-  flex-shrink: 0;
-  border: 1px solid #ddd;
-  background: #fff;
-  color: #666;
+  flex-shrink:0;
+  border:1px solid #fee2e2;
+  background:#fff;
+  color:#ef4444;
 }
 
 .delete-button:hover {
-  background: #f5f5f5;
+  background:#fff1f2;
 }
 
+
+/* 刷新按钮 */
+
 .refresh-button {
-  border: 1px solid #ddd;
-  background: #fff;
+  border:1px solid #f3d9a8;
+  background:white;
+  color:#d97706;
 }
 
 .refresh-button:hover {
-  background: #f5f5f5;
+  background:#fff7ed;
 }
+
 
 /* 空状态 */
 
 .empty-state {
-  padding: 50px 20px;
-  text-align: center;
-  color: #999;
+  padding:55px 20px;
+  text-align:center;
+  color:#999;
 }
 
 .empty-icon {
-  margin-bottom: 12px;
-  font-size: 40px;
+  margin-bottom:15px;
+  font-size:42px;
 }
 
-@media (max-width: 700px) {
-  .knowledge-page {
-    padding: 24px 15px;
-  }
 
-  .upload-section,
-  .files-section {
-    padding: 20px;
-  }
+@media(max-width:700px){
 
-  .file-item {
-    align-items: flex-start;
-  }
+.knowledge-page {
+  padding:24px 15px;
+}
 
-  .section-header {
-    align-items: flex-start;
-  }
+.upload-section,
+.files-section {
+  padding:20px;
+}
+
+.file-item {
+  align-items:flex-start;
+}
+
+.section-header {
+  align-items:flex-start;
+}
+
 }
 </style>
