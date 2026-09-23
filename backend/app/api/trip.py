@@ -4,6 +4,7 @@ from sse_starlette.sse import EventSourceResponse
 
 from app.agent.agent import get_trip_agent
 from app.storage.trip_storage import save_trip
+from langchain_core.messages import ToolMessage
 
 router = APIRouter(
     prefix="/trip",
@@ -73,9 +74,10 @@ async def create_trip(request: TripRequest):
             if mode == "messages":
                 message, metadata = data
                 # 过滤空消息
-                # # 只取 agent 节点的输出，丢弃 tools 节点的 ToolMessage
-                # if metadata.get("langgraph_node") != "agent":
-                #     continue
+                # ToolMessage 是工具返回结果，不应该展示给用户
+                if isinstance(message, ToolMessage):
+                    continue
+
                 if message.content:
                     buffer += message.content
                     # ---------------------
